@@ -6,8 +6,8 @@ import ImageQuery from '../types/imageQuery.types';
 class imgprocmodel {
 
   async imagePath(iQ: ImageQuery): Promise<null | string> {
-    const originalImages = path.resolve(__dirname, '../public/images/original');
-    const thumbImages = path.resolve(__dirname, '../public/images/thumb');
+    const originalImages = path.resolve(__dirname, '../../src/public/images/original');
+    const thumbImages = path.resolve(__dirname, '../../src/public/images/thumb');
     const imageUrl =
       iQ.width && iQ.height
         ? path.resolve(
@@ -21,7 +21,7 @@ class imgprocmodel {
   }
   
   async thumbFolder(): Promise<void> {
-    const thumbImages = path.resolve(__dirname, '../public/images/thumb');
+    const thumbImages = path.resolve(__dirname, '../../src/public/images/thumb');
 
     try {
       await fs.access(thumbImages);
@@ -31,7 +31,7 @@ class imgprocmodel {
   }
 
   async availableThumb(iQ: ImageQuery): Promise<boolean> {
-    const thumbImages = path.resolve(__dirname, '../public/images/thumb');
+    const thumbImages = path.resolve(__dirname, '../../src/public/images/thumb');
     const filePath = path.resolve(
       thumbImages,
       `${iQ.filename}_thumb=${iQ.width}${iQ.height}.jpg`
@@ -50,8 +50,8 @@ class imgprocmodel {
       return null;
     }
 
-    const originalImages = path.resolve(__dirname, '../public/images/original');
-    const thumbImages = path.resolve(__dirname, '../public/images/thumb');
+    const originalImages = path.resolve(__dirname, '../../src/public/images/original');
+    const thumbImages = path.resolve(__dirname, '../../src/public/images/thumb');
     const originalPath = path.resolve(originalImages, `${iQ.filename}.jpg`);
     const thumbPath: string = path.resolve(
       thumbImages,

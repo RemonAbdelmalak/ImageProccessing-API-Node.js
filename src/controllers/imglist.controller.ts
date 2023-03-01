@@ -5,7 +5,7 @@ import path from 'path';
 export const imglist = async (_req: Request, res: Response) => {
   const pathFullImage = `${path.resolve(
     __dirname,
-    '../public/images/original'
+    '../../src/public/images/original'
   )}`;
   const files = await fs.readdir(pathFullImage);
 
@@ -14,7 +14,6 @@ export const imglist = async (_req: Request, res: Response) => {
   }
   let htmlResponse = `
       <h1>Available images</h1>
-      <p>Below you can find all images that are accessible via the route<code><a href="/api/images/">/api/images/</a></code> then you type the name of the image.</p>
       <ul>
       `;
 
