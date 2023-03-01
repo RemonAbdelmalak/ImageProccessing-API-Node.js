@@ -4,6 +4,7 @@ import image from './sharp.models';
 import ImageQuery from '../types/imageQuery.types';
 
 class imgprocmodel {
+
   async imagePath(iQ: ImageQuery): Promise<null | string> {
     const originalImages = path.resolve(__dirname, '../public/images/original');
     const thumbImages = path.resolve(__dirname, '../public/images/thumb');
@@ -17,6 +18,16 @@ class imgprocmodel {
 
     fs.access(imageUrl);
     return imageUrl;
+  }
+  
+  async thumbFolder(): Promise<void> {
+    const thumbImages = path.resolve(__dirname, '../public/images/thumb');
+
+    try {
+      await fs.access(thumbImages);
+    } catch {
+      fs.mkdir(thumbImages)
+    }
   }
 
   async availableThumb(iQ: ImageQuery): Promise<boolean> {
