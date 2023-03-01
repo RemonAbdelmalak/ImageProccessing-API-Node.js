@@ -1,0 +1,50 @@
+{
+  "name": "pro1",
+  "version": "1.0.0",
+  "description": "To run build:\r -------------\r -> npm run build\r _____________________________________________________________________________________________________________________\r To Start Server:\r ----------------\r -> npm run start\r _____________________________________________________________________________________________________________________\r To Test:\r ----------------\r -> npm run test\r _____________________________________________________________________________________________________________________\r To Check Code with Prettier & eslint:\r ----------------\r Prettier-> npm run prettier",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "nodemon src/server.ts",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc src/**/*.ts --write"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/image-size": "^0.8.0",
+    "@types/jasmine": "^4.3.1",
+    "@types/node": "^18.11.18",
+    "@types/sharp": "^0.31.1",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "image-size": "^1.0.2",
+    "jasmine": "^4.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "sharp": "^0.31.3",
+    "supertest": "^6.3.3",
+    "winston": "^3.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RemonAbdelmalak/Image-Processing-Node.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RemonAbdelmalak/Image-Processing-Node.js/issues"
+  },
+  "homepage": "https://github.com/RemonAbdelmalak/Image-Processing-Node.js#readme"
+}
