@@ -30,6 +30,49 @@ class imgprocmodel {
     }
   }
 
+  async imgNameCheck(filename = ''): Promise<boolean>{
+    if (!filename) {
+      return false;
+    }
+    return (await this.cutExtImg()).includes(filename);
+  }
+
+
+  async cutExtImg(): Promise<string[]> {
+    
+    try {
+
+      const originalImages = path.resolve(__dirname, '../../src/public/images/original');
+      const files = await (await (fs.readdir(originalImages)))
+      .map((filename) => filename.split('.')[0]);
+
+      return (files)
+
+    } catch {
+
+      return [];
+    }
+  }
+
+  async validation(iQ: ImageQuery): Promise<null | string> {
+    
+    if(!(await this.imgNameCheck(iQ.filename))){
+      return 'Please enter the name of the image.'
+    }
+
+    const width = parseInt(iQ.width||'');
+    if(Number.isNaN(width) || 1 > width){
+      return 'the number of width or height is either below 1 or not a number so please check and try again'
+    }
+
+    const height = parseInt(iQ.height||'');
+    if(Number.isNaN(height) || 1 > height){
+      return 'the number of width or height is either below 1 or not a number so please check and try again'
+    }
+    return null;
+  }
+
+
   async availableThumb(iQ: ImageQuery): Promise<boolean> {
     const thumbImages = path.resolve(__dirname, '../../src/public/images/thumb');
     const filePath = path.resolve(

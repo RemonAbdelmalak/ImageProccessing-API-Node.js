@@ -22,9 +22,9 @@
 
 ### Url for vewing imgs:
 
-- http://localhost:3000/api/images/'name of the image'.jpg
+- http://localhost:3000/api/originalimg/?filename='name of the image'
 
-- eg: http://localhost:3000/api/images/3.jpg
+- eg: http://localhost:3000/api/originalimg/?filename=1
 
 
 ### url for vewing imgs with the desierd size:
